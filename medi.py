@@ -1,6 +1,10 @@
 import streamlit as st
-import pydicom
-from pydicom.errors import InvalidDicomError
+
+try:
+    import pydicom
+    from pydicom.errors import InvalidDicomError
+except ModuleNotFoundError:
+    st.error("The pydicom library is not installed. Please install it using 'pip install pydicom' and restart the app.")
 
 # Set up the Streamlit app
 def main():
